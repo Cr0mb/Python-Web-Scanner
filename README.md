@@ -1,4 +1,7 @@
 # Python-Web-Scanner
+
+Youtube Video: https://www.youtube.com/watch?v=pT0DIE-ReMk&t=4s
+
 This Python script performs web scanning tasks to identify active web servers, potential index pages, and check redirections for websites. It utilizes asynchronous programming, concurrent execution, and web automation to efficiently scan and analyze web addresses. This tutorial provides step-by-step instructions on how to use and understand each component of the script.
 
 ## Prerequisites
