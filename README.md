@@ -63,6 +63,9 @@ python httplistorganizer.py
 
 ![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/0b0bd03c-321c-4b3f-b714-d5a9563b8527)
 
+4. Regex for Domain Validation (cleanoutput.py)
+- This script will create filtered_output.txt with only the valid URL redirection pairs that point to domain names, excluding those that redirect to IP addresses.
+
 
 ## How to Use
 
