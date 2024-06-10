@@ -61,6 +61,9 @@ python httplistorganizer.py
     - Retaining websites that contain 'login' slightly minimizes the amount of routers (not by much.)
 - Logs redirected URLs in "output.txt" excluding sites containing 'login'.
 
+![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/0b0bd03c-321c-4b3f-b714-d5a9563b8527)
+
+
 ## How to Use
 
 1. Web Scanner:
