@@ -42,11 +42,7 @@ python breadscan.py [-u] [-n NUM_ADDRESSES] [-i NUM_INSTANCES]
 
 2. URL Organizer (httplistorganizer.py)
 - Reads URLs from "sites.txt".
-- Extracts unique IP addresses and sorts them.
-  
-  - check_redirect: Sends an HTTP GET request to the provided URL and follows any redirects (allow_redirects=True). It returns the final URL unless it contains the word 'login'.
-    - Retaining websites that contain 'login' slightly minimizes the amount of routers (not by much.)
-  
+- Extracts unique IP addresses and sorts them.  
 - Writes sorted addresses to "clean_sites.txt".
 ```
 python httplistorganizer.py
@@ -55,6 +51,8 @@ python httplistorganizer.py
 3. Redirection Checker (checker.py)
 - Checks redirections for websites listed in "clean_sites.txt".
 - Uses requests for handling HTTP requests and concurrent.futures for managing concurrent execution.
+  - check_redirect: Sends an HTTP GET request to the provided URL and follows any redirects (allow_redirects=True). It returns the final URL unless it contains the word 'login'.
+    - Retaining websites that contain 'login' slightly minimizes the amount of routers (not by much.)
 - Logs redirected URLs in "output.txt" excluding sites containing 'login'.
 
 ## How to Use
@@ -64,13 +62,12 @@ python httplistorganizer.py
 - Run web_scanner.py with desired options to scan for active web servers.
 Adjust the number of addresses and instances based on your requirements.
 
-3. URL Organizer:
+2. URL Organizer:
 
 - Execute url_organizer.py to extract and organize unique IP addresses.
 
-4. Redirection Checker:
+3. Redirection Checker:
 
 - Run redirection_checker.py to check redirections for websites.
-Ensure Chrome WebDriver is installed and accessible in your system.
 
 
