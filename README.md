@@ -4,6 +4,7 @@
 V1.1
 > Updated "checker.py" so that chrome driver is no longer needed.
 > Makes finding the redirected sites exponentially faster and less power hungry.
+> Also no longer uses selenium
 ```
 
 # Python-Web-Scanner
@@ -22,7 +23,7 @@ Before getting started, make sure you have the following installed:
 
 You can install the required Python packages using pip:
 ```
-pip install aiohttp colorama pyfiglet selenium
+pip install aiohttp colorama pyfiglet
 ```
 
 ## Components of the Script
@@ -42,6 +43,10 @@ python breadscan.py [-u] [-n NUM_ADDRESSES] [-i NUM_INSTANCES]
 2. URL Organizer (httplistorganizer.py)
 - Reads URLs from "sites.txt".
 - Extracts unique IP addresses and sorts them.
+  
+  - check_redirect: Sends an HTTP GET request to the provided URL and follows any redirects (allow_redirects=True). It returns the final URL unless it contains the word 'login'.
+    - Retaining websites that contain 'login' slightly minimizes the amount of routers (not by much.)
+  
 - Writes sorted addresses to "clean_sites.txt".
 ```
 python httplistorganizer.py
@@ -49,7 +54,7 @@ python httplistorganizer.py
 
 3. Redirection Checker (checker.py)
 - Checks redirections for websites listed in "clean_sites.txt".
-- Uses headless Chrome browser for concurrent execution.
+- Uses requests for handling HTTP requests and concurrent.futures for managing concurrent execution.
 - Logs redirected URLs in "output.txt" excluding sites containing 'login'.
 
 ## How to Use
