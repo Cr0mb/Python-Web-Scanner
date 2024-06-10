@@ -82,4 +82,7 @@ Adjust the number of addresses and instances based on your requirements.
 
 - Run redirection_checker.py to check redirections for websites.
 
+4. Domain Validator
+
+- Run cleanout.py to consolidate domain links to a seperate file for organization.
 
