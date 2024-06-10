@@ -1,5 +1,10 @@
 ![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/30698e54-aee9-4194-915f-84210bda2d89)
 
+```
+V1.1
+> Updated "checker.py" so that chrome driver is no longer needed.
+> Makes finding the redirected sites exponentially faster and less power hungry.
+```
 
 # Python-Web-Scanner
 
