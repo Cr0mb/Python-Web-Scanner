@@ -3,10 +3,12 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
 
 MAX_CONCURRENT_REQUESTS = 5
+TIMEOUT = 10  # Adjust timeout as needed
+
 
 def check_redirect(url):
     try:
-        response = requests.get(url, allow_redirects=True)
+        response = requests.get(url, allow_redirects=True, timeout=TIMEOUT)
         final_url = response.url
         if "login" not in final_url:
             return final_url
@@ -15,6 +17,10 @@ def check_redirect(url):
     except requests.RequestException as e:
         print(f"Error checking {url}: {str(e)}")
         return None
+    except requests.Timeout:
+        print(f"Timeout checking {url} after {TIMEOUT} seconds.")
+        return None
+
 
 def main():
     input_file = "clean_sites.txt"
@@ -22,7 +28,10 @@ def main():
     with open(input_file, "r") as infile:
         sites = [line.strip() for line in infile]
     with ThreadPoolExecutor(max_workers=MAX_CONCURRENT_REQUESTS) as executor:
-        futures = {executor.submit(check_redirect, site): site for site in sites}
+        futures = {
+            executor.submit(check_redirect, site): site
+            for site in sites
+        }
         for future in as_completed(futures):
             site = futures[future]
             try:
@@ -35,6 +44,7 @@ def main():
                     print(f"Skipped: {site} (contains 'login')")
             except Exception as e:
                 print(f"Error processing {site}: {str(e)}")
+
 
 if __name__ == "__main__":
     start_time = time.time()
