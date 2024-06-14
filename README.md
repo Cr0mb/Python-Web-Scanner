@@ -1,6 +1,9 @@
 ![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/30698e54-aee9-4194-915f-84210bda2d89)
 
 ```
+V1.2
+> Introduced a 'TIMEOUT' constant, so if a request takes longer than the specified timeout period, it will raise a 'requests.Timeout' exception.
+   > Crucial when dealing with potentially slow or unresponsive web servers.
 V1.12
 > Added "cleanoutput.py"; will show all website URLs ignoring IP addresses that don't link to a domain.
 > You can use this after you use checker.py, this python script will grab all of the website link URLs from output.txt, ignoring the ones that redirect to an IP address.
@@ -10,7 +13,7 @@ V1.12
 V1.1
 > Updated "checker.py" so that chrome driver is no longer needed.
 > Makes finding the redirected sites exponentially faster and less power hungry.
-> Also no longer uses selenium
+> Also no longer uses selenium.
 ```
 
 # Python-Web-Scanner
