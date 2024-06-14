@@ -4,6 +4,8 @@
 V1.2
 > Introduced a 'TIMEOUT' constant, so if a request takes longer than the specified timeout period, it will raise a 'requests.Timeout' exception.
    > Crucial when dealing with potentially slow or unresponsive web servers.
+```
+```
 V1.12
 > Added "cleanoutput.py"; will show all website URLs ignoring IP addresses that don't link to a domain.
 > You can use this after you use checker.py, this python script will grab all of the website link URLs from output.txt, ignoring the ones that redirect to an IP address.
