@@ -1,5 +1,8 @@
 ![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/30698e54-aee9-4194-915f-84210bda2d89)
-
+```
+v1.3
+> Added 'Total Amount of sites: ' to read total amount of sites that are written in sites.txt
+> Now any site will not be duplicated in sites.txt if scanned the same randomly generated address twice.
 ```
 V1.2
 > Introduced a 'TIMEOUT' constant, so if a request takes longer than the specified timeout period, it will raise a 'requests.Timeout' exception.
