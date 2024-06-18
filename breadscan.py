@@ -6,7 +6,6 @@
 # The active URLs are logged in a file named "sites.txt."
 # The organizer will organize addresses from least to greatest.
 
-# Import necessary libraries
 import asyncio
 import aiohttp
 import random
@@ -16,78 +15,52 @@ import argparse
 from colorama import Fore, Style, init
 from pyfiglet import Figlet
 
-# Initialize colorama for colored text output
 init(autoreset=True)
 
-# Function to generate a random IP address
-async def generate_random_ip():
-    return '.'.join(str(random.randint(0, 255)) for _ in range(4))
 
-# Function to scan for potential index page on a given IP address
-async def scan_for_index_page(session, ip_address, counter):
-    # Construct URL from IP address
-    url = f"http://{ip_address}"
-    try:
-        # Attempt to connect to the URL
-        async with session.get(url, timeout=2) as response:
-            # Check if response status is 200 and content type is "text/html"
-            if response.status == 200 and "text/html" in response.headers.get("Content-Type", ""):
-                # Print active result if criteria are met
-                print_active_result(url)
-                try:
-                    # Try to decode and analyze the response text
-                    text_content = await response.text(encoding='utf-8', errors='replace')
-                    if "/" in text_content:
-                        print(f"{Fore.GREEN}[+] Potential index page found!{Style.RESET_ALL}")
-                        # Write the active URL to a file
-                        await write_to_file(url)
-                except UnicodeDecodeError:
-                    # Print error if there's an issue decoding the response text
-                    print_decode_error(url)
-                # Increment the active site counter
-                counter['active'] += 1
-            else:
-                # Print inactive result if criteria are not met
-                print_inactive_result(url)
-            # Increment the total site counter
-            counter['total'] += 1
-            # Print total sites scanned
-            print_totals(counter)
-    except (aiohttp.ClientError, asyncio.TimeoutError):
-        # Print inactive result if there's an error connecting to the URL
-        print_inactive_result(url)
-        # Increment the total site counter
-        counter['total'] += 1
-        # Print total sites scanned
-        print_totals(counter)
+# Function to load existing IP addresses from sites.txt
+def load_existing_ips(file_path):
+    existing_ips = set()
+    if os.path.exists(file_path):
+        with open(file_path, 'r') as file:
+            for line in file:
+                url = line.strip()
+                if url.startswith('http://'):
+                    ip_address = url[len('http://'):]
+                    existing_ips.add(ip_address)
+    return existing_ips
 
-# Function to print active result
-def print_active_result(url):
-    clear_screen()
-    print_banner()
-    set_window_title("Crumb Finder HTTP GEN")
-    print(f"{Fore.GREEN}[+] {url} ACTIVE{Style.RESET_ALL}")
 
-# Function to print inactive result
-def print_inactive_result(url):
-    clear_screen()
-    print_banner()
-    set_window_title("Crumb Finder HTTP GEN")
-    print(f"{Fore.RED}[-] {url} NOT ACTIVE{Style.RESET_ALL}")
+# Function to generate a random IP address that is not in the existing_ips set
+def generate_random_ip(existing_ips):
+    while True:
+        ip_address = '.'.join(str(random.randint(0, 255)) for _ in range(4))
+        if ip_address not in existing_ips:
+            return ip_address
 
-# Function to print decode error
-def print_decode_error(url):
-    print(f"{Fore.RED}[-] Error decoding response text for {url}{Style.RESET_ALL}")
 
-# Function to print total sites scanned
+# Function to print banner
+def print_banner():
+    fig = Figlet()
+    print(
+        f"{Fore.LIGHTYELLOW_EX}{fig.renderText('Crumb Finder')}{Style.RESET_ALL}"
+    )
+
+
+# Function to print totals
 def print_totals(counter):
     print(f"\nTotal sites searched: {counter['total']}")
     print(f"Total active sites: {counter['active']}")
+    print(f"Total amount of sites: {counter['active'] + counter['existing']}")
 
-# Function to write URL to file
-async def write_to_file(url):
-    with open('sites.txt', 'a') as file:
-        file.write(f"{url}\n")
+
+# Function to count existing sites in sites.txt
+def count_existing_sites(file_path):
+    if os.path.exists(file_path):
+        with open(file_path, 'r') as file:
+            return len(file.readlines())
+    return 0
+
 
 # Function to set window title
 def set_window_title(title):
@@ -96,62 +69,119 @@ def set_window_title(title):
     elif os.name == 'nt':
         ctypes.windll.kernel32.SetConsoleTitleW(title)
 
+
 # Function to clear screen
 def clear_screen():
     os.system('clear' if os.name == 'posix' else 'cls')
 
-# Function to print banner
-def print_banner():
-    global fig
-    fig = Figlet()
-    print(f"{Fore.LIGHTYELLOW_EX}{fig.renderText('Crumb Finder')}{Style.RESET_ALL}")
+
+# Function to write URL to file
+def write_to_file(url):
+    with open('sites.txt', 'a') as file:
+        file.write(f"{url}\n")
+
+
+# Function to handle scan result
+def handle_scan_result(url, active):
+    clear_screen()
+    print_banner()
+    set_window_title("Crumb Finder HTTP GEN")
+    if active:
+        print(f"{Fore.GREEN}[+] {url} ACTIVE{Style.RESET_ALL}")
+    else:
+        print(f"{Fore.RED}[-] {url} NOT ACTIVE{Style.RESET_ALL}")
+
+
+# Function to scan for potential index page on a given IP address
+async def scan_for_index_page(session, ip_address, counter):
+    url = f"http://{ip_address}"
+    try:
+        async with session.get(url, timeout=2) as response:
+            if response.status == 200 and "text/html" in response.headers.get(
+                    "Content-Type", ""):
+                handle_scan_result(url, active=True)
+                try:
+                    text_content = await response.text(encoding='utf-8',
+                                                       errors='replace')
+                    if "/" in text_content:
+                        print(
+                            f"{Fore.GREEN}[+] Potential index page found!{Style.RESET_ALL}"
+                        )
+                        write_to_file(url)
+                except UnicodeDecodeError:
+                    print(
+                        f"{Fore.RED}[-] Error decoding response text for {url}{Style.RESET_ALL}"
+                    )
+                counter['active'] += 1
+            else:
+                handle_scan_result(url, active=False)
+            counter['total'] += 1
+            print_totals(counter)
+    except (aiohttp.ClientError, asyncio.TimeoutError):
+        handle_scan_result(url, active=False)
+        counter['total'] += 1
+        print_totals(counter)
+
 
 # Main function
 async def main():
-    # Parse command line arguments
-    parser = argparse.ArgumentParser(description='Crumb Finder HTTP GEN', add_help=False)
-    parser.add_argument('-u', action='store_true', help='Scan unlimited IP addresses')
-    parser.add_argument('-n', type=int, default=0, help='Number of IP addresses to scan')
-    parser.add_argument('-i', type=int, default=1, help='Number of instances to run concurrently')
-    parser.add_argument('-help', action='help', help='Show this help message and exit')
-    parser.add_argument('-h', action='help', help='Show this help message and exit')
+    parser = argparse.ArgumentParser(description='Crumb Finder HTTP GEN',
+                                     add_help=False)
+    parser.add_argument('-u',
+                        action='store_true',
+                        help='Scan unlimited IP addresses')
+    parser.add_argument('-n',
+                        type=int,
+                        default=0,
+                        help='Number of IP addresses to scan')
+    parser.add_argument('-i',
+                        type=int,
+                        default=1,
+                        help='Number of instances to run concurrently')
     args = parser.parse_args()
 
-    # If no arguments are provided, prompt user for input
-    if not any(vars(args).values()) or (args.n == 0 and args.i == 1 and not args.u):
-        args.n = int(input("Enter the number of IP addresses to scan (0 for unlimited): "))
-        args.i = int(input("Enter the number of instances to run concurrently: "))
+    if not any(vars(args).values()) or (args.n == 0 and args.i == 1
+                                        and not args.u):
+        args.n = int(
+            input(
+                "Enter the number of IP addresses to scan (0 for unlimited): ")
+        )
+        args.i = int(
+            input("Enter the number of instances to run concurrently: "))
         if args.n == 0:
             args.u = True
 
     clear_screen()
     print_banner()
-    print(f"{Fore.BLACK}Scans random IP addresses for potential index pages.{Style.RESET_ALL}")
+    print(
+        f"{Fore.BLACK}Scans random IP addresses for potential index pages.{Style.RESET_ALL}"
+    )
     set_window_title("Crumb Finder HTTP GEN")
 
-    # Determine number of addresses to scan
     num_addresses = args.n if not args.u else 0
     scanned_addresses = set()
 
-    async with aiohttp.ClientSession() as session:
-        counter = {'total': 0, 'active': 0}
+    counter = {
+        'total': 0,
+        'active': 0,
+        'existing': count_existing_sites('sites.txt')
+    }
 
-        # Function to start scanning
+    existing_ips = load_existing_ips('sites.txt')
+
+    async with aiohttp.ClientSession() as session:
+
         async def start_scanning():
             while num_addresses == 0 or counter['total'] < num_addresses:
-                ip_address = await generate_random_ip()
-
+                ip_address = generate_random_ip(existing_ips)
                 while ip_address in scanned_addresses:
-                    ip_address = await generate_random_ip()
-
+                    ip_address = generate_random_ip(existing_ips)
                 scanned_addresses.add(ip_address)
                 await scan_for_index_page(session, ip_address, counter)
 
-        # Create tasks for concurrent scanning
         tasks = [start_scanning() for _ in range(args.i)]
         await asyncio.gather(*tasks)
 
-# Run the main function
+
 if __name__ == "__main__":
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(main())
+    asyncio.run(main())
