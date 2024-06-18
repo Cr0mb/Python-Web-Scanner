@@ -6,6 +6,8 @@
 # The active URLs are logged in a file named "sites.txt."
 # The organizer will organize addresses from least to greatest.
 
+## Added 'Total Amount of sites: ' to read total amount of sites that are written in sites.txt
+
 import asyncio
 import aiohttp
 import random
