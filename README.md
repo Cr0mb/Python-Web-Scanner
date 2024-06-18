@@ -4,6 +4,7 @@ v1.3
 > Added 'Total Amount of sites: ' to read total amount of sites that are written in sites.txt
 > Now any site will not be duplicated in sites.txt if scanned the same randomly generated address twice.
 ```
+```
 V1.2
 > Introduced a 'TIMEOUT' constant, so if a request takes longer than the specified timeout period, it will raise a 'requests.Timeout' exception.
    > Crucial when dealing with potentially slow or unresponsive web servers.
