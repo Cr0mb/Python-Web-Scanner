@@ -1,5 +1,9 @@
 ![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/30698e54-aee9-4194-915f-84210bda2d89)
 ```
+v1.4
+> added a sitemap checker script to find out which sites found contain a sitemap.
+```
+```
 v1.3
 > Added 'Total Amount of sites: ' to read total amount of sites that are written in sites.txt
 > Now any site will not be duplicated in sites.txt if scanned the same randomly generated address twice.
