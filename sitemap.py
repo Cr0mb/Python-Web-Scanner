@@ -23,7 +23,7 @@ def check_for_sitemap(url):
     return False
 
 def main():
-    file_path = 'sites.txt'
+    file_path = 'clean_sites.txt'
     urls = read_sites(file_path)
     
     sites_with_sitemap = []
