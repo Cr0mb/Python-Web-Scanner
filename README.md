@@ -1,5 +1,10 @@
 ![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/30698e54-aee9-4194-915f-84210bda2d89)
 ```
+v1.45
+> Enhanced Error Handling
+> Validation for Empty or Invalid URLs
+> Logging and Error / Timeout Indication
+```
 v1.4
 > added a sitemap checker script to find out which sites found contain a sitemap.
 ```
