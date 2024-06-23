@@ -85,6 +85,8 @@ python httplistorganizer.py
 4. Regex for Domain Validation (cleanoutput.py)
 - This script will create filtered_output.txt with only the valid URL redirection pairs that point to domain names, excluding those that redirect to IP addresses.
 
+5. Sitemap redirect checker (sitemap.py)
+- Checks to see if a given site has a sitemap.xml.
 
 ## How to Use
 
