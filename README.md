@@ -5,6 +5,7 @@ v1.45
 > Validation for Empty or Invalid URLs
 > Logging and Error / Timeout Indication
 ```
+```
 v1.4
 > added a sitemap checker script to find out which sites found contain a sitemap.
 ```
