@@ -1,4 +1,3 @@
-![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/30698e54-aee9-4194-915f-84210bda2d89)
 
 
 # Python-Web-Scanner
@@ -6,6 +5,9 @@
 Youtube Video: https://www.youtube.com/watch?v=pT0DIE-ReMk&t=4s
 
 Python-based toolset for conducting advanced reconnaissance tasks on web resources associated with IP addresses. It leverages asyncio for concurrent scanning, aiohttp for asynchronous HTTP requests, and integrates various utilities for handling files, terminal interactions, and network-related tasks.
+
+![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/30698e54-aee9-4194-915f-84210bda2d89)
+
 
 ## Prerequisites
 Before getting started, make sure you have the following installed:
