@@ -1,42 +1,11 @@
 ![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/30698e54-aee9-4194-915f-84210bda2d89)
-```
-v1.45
-> Enhanced Error Handling
-> Validation for Empty or Invalid URLs
-> Logging and Error / Timeout Indication
-```
-```
-v1.4
-> added a sitemap checker script to find out which sites found contain a sitemap.
-```
-```
-v1.3
-> Added 'Total Amount of sites: ' to read total amount of sites that are written in sites.txt
-> Now any site will not be duplicated in sites.txt if scanned the same randomly generated address twice.
-```
-```
-V1.2
-> Introduced a 'TIMEOUT' constant, so if a request takes longer than the specified timeout period, it will raise a 'requests.Timeout' exception.
-   > Crucial when dealing with potentially slow or unresponsive web servers.
-```
-```
-V1.12
-> Added "cleanoutput.py"; will show all website URLs ignoring IP addresses that don't link to a domain.
-> You can use this after you use checker.py, this python script will grab all of the website link URLs from output.txt, ignoring the ones that redirect to an IP address.
-```
 
-```
-V1.1
-> Updated "checker.py" so that chrome driver is no longer needed.
-> Makes finding the redirected sites exponentially faster and less power hungry.
-> Also no longer uses selenium.
-```
 
 # Python-Web-Scanner
 
 Youtube Video: https://www.youtube.com/watch?v=pT0DIE-ReMk&t=4s
 
-This Python script performs web scanning tasks to identify active web servers, potential index pages, and check redirections for websites. It utilizes asynchronous programming, concurrent execution, and web automation to efficiently scan and analyze web addresses. This tutorial provides step-by-step instructions on how to use and understand each component of the script.
+Python-based toolset for conducting advanced reconnaissance tasks on web resources associated with IP addresses. It leverages asyncio for concurrent scanning, aiohttp for asynchronous HTTP requests, and integrates various utilities for handling files, terminal interactions, and network-related tasks.
 
 ## Prerequisites
 Before getting started, make sure you have the following installed:
@@ -106,4 +75,40 @@ Adjust the number of addresses and instances based on your requirements.
 4. Domain Validator
 
 - Run cleanout.py to consolidate domain links to a seperate file for organization.
+
+
+## Updates
+
+```
+v1.45
+> Enhanced Error Handling
+> Validation for Empty or Invalid URLs
+> Logging and Error / Timeout Indication
+```
+```
+v1.4
+> added a sitemap checker script to find out which sites found contain a sitemap.
+```
+```
+v1.3
+> Added 'Total Amount of sites: ' to read total amount of sites that are written in sites.txt
+> Now any site will not be duplicated in sites.txt if scanned the same randomly generated address twice.
+```
+```
+V1.2
+> Introduced a 'TIMEOUT' constant, so if a request takes longer than the specified timeout period, it will raise a 'requests.Timeout' exception.
+   > Crucial when dealing with potentially slow or unresponsive web servers.
+```
+```
+V1.12
+> Added "cleanoutput.py"; will show all website URLs ignoring IP addresses that don't link to a domain.
+> You can use this after you use checker.py, this python script will grab all of the website link URLs from output.txt, ignoring the ones that redirect to an IP address.
+```
+
+```
+V1.1
+> Updated "checker.py" so that chrome driver is no longer needed.
+> Makes finding the redirected sites exponentially faster and less power hungry.
+> Also no longer uses selenium.
+```
 
