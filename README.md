@@ -115,7 +115,10 @@ Adjust the number of addresses and instances based on your requirements.
 - Run rtsp.py to find sites that contain open port 554
 
 ## Updates
-
+```
+v1.5
+> Added a rtsp checker script to find out which sites contain media streaming under port 554.
+```
 ```
 v1.45
 > Enhanced Error Handling
