@@ -11,12 +11,21 @@ Before getting started, make sure you have the following installed:
 
 - Python 3.x
 - Pip (Python package manager)
+  - asyncio (Standard library for asynchronous programming)
+  - aiohttp (For asynchronous HTTP requests)
+  - colorama (For colored terminal output)
+  - pyfiglet (For ASCII art text rendering)
+  - requests (For making HTTP requests)
+  - re (Standard library for regular expressions)
+  - concurrent.futures (For concurrent execution of tasks)
+  - time (Standard library for time-related functions)
+  - socket (Standard library for low-level networking interfaces)
 
 ## Installation
 
 You can install the required Python packages using pip:
 ```
-pip install asyncio aiohttp colorama pyfiglet
+pip install asyncio aiohttp colorama pyfiglet requests
 ```
 
 ## Components of the Script
