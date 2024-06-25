@@ -16,7 +16,7 @@ Before getting started, make sure you have the following installed:
 
 You can install the required Python packages using pip:
 ```
-pip install aiohttp colorama pyfiglet
+pip install asyncio aiohttp colorama pyfiglet
 ```
 
 ## Components of the Script
