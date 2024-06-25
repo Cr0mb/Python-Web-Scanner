@@ -6,9 +6,6 @@ Youtube Video: https://www.youtube.com/watch?v=pT0DIE-ReMk&t=4s
 
 Python-based toolset for conducting advanced reconnaissance tasks on web resources associated with IP addresses. It leverages asyncio for concurrent scanning, aiohttp for asynchronous HTTP requests, and integrates various utilities for handling files, terminal interactions, and network-related tasks.
 
-![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/30698e54-aee9-4194-915f-84210bda2d89)
-
-
 ## Prerequisites
 Before getting started, make sure you have the following installed:
 
@@ -25,6 +22,7 @@ pip install aiohttp colorama pyfiglet
 ## Components of the Script
 
 1. Web Scanner (breadscan.py)
+
 - Generates random IP addresses.
 - Scans for potential index pages on active web servers.
 - Logs active URLs in a file named "sites.txt".
@@ -35,6 +33,9 @@ python breadscan.py [-u] [-n NUM_ADDRESSES] [-i NUM_INSTANCES]
 -n: Number of IP addresses to scan (default: 0).
 -i: Number of instances to run concurrently (default: 1).
 ```
+
+![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/30698e54-aee9-4194-915f-84210bda2d89)
+
 
 2. URL Organizer (httplistorganizer.py)
 - Reads URLs from "sites.txt".
@@ -50,17 +51,32 @@ python httplistorganizer.py
   - check_redirect: Sends an HTTP GET request to the provided URL and follows any redirects (allow_redirects=True). It returns the final URL unless it contains the word 'login'.
     - Retaining websites that contain 'login' slightly minimizes the amount of routers (not by much.)
 - Logs redirected URLs in "output.txt" excluding sites containing 'login'.
+```
+python checker.py
+```
 
 ![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/0b0bd03c-321c-4b3f-b714-d5a9563b8527)
 
 4. Regex for Domain Validation (cleanoutput.py)
 - This script will create filtered_output.txt with only the valid URL redirection pairs that point to domain names, excluding those that redirect to IP addresses.
+```
+python cleanoutput.py
+```
 
 5. Sitemap redirect checker (sitemap.py)
 - Checks to see if a given site has a sitemap.xml.
+```
+python sitemap.py
+```
 
 6. RTSP Port Checker (rtsp.py)
 - The rtsp.py script is designed to identify IP addresses with an open RTSP (Real-Time Streaming Protocol) port. RTSP ports are commonly used for streaming media servers, and detecting open ports can help in discovering accessible media services.
+```
+python rtsp.py
+```
+
+![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/d6d052a9-896e-43f4-a2df-e5297fd5c6c8)
+
 
 ## How to Use
 
