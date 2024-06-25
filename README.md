@@ -66,21 +66,28 @@ python httplistorganizer.py
 
 1. Web Scanner:
 
-- Run web_scanner.py with desired options to scan for active web servers.
+- Run breadscan.py with desired options to scan for active web servers.
 Adjust the number of addresses and instances based on your requirements.
 
 2. URL Organizer:
 
-- Execute url_organizer.py to extract and organize unique IP addresses.
+- Execute httplistorganizer.py to extract and organize unique IP addresses.
 
 3. Redirection Checker:
 
-- Run redirection_checker.py to check redirections for websites.
+- Run checker.py to check redirections for websites.
 
 4. Domain Validator
 
-- Run cleanout.py to consolidate domain links to a seperate file for organization.
+- Run cleanoutput.py to consolidate domain links to a seperate file for organization.
 
+5. Sitemap Chcker
+
+- Run sitemap.py to index sites that contain /sitemap.xml
+
+6. RTSP Checker
+
+- Run rtsp.py to find sites that contain open port 554
 
 ## Updates
 
