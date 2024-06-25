@@ -59,6 +59,9 @@ python httplistorganizer.py
 5. Sitemap redirect checker (sitemap.py)
 - Checks to see if a given site has a sitemap.xml.
 
+6. RTSP Port Checker (rtsp.py)
+- The rtsp.py script is designed to identify IP addresses with an open RTSP (Real-Time Streaming Protocol) port. RTSP ports are commonly used for streaming media servers, and detecting open ports can help in discovering accessible media services.
+
 ## How to Use
 
 1. Web Scanner:
