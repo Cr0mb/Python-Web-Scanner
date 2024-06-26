@@ -92,6 +92,7 @@ python rtsp.py
 >  Country, State, Region, ISP, Latitude, Longitude, and Organization
 - Uses the ip-api.com API.
 - it's slowed a little because of possible limiting to the api requests (error 429)
+  - if you want it be faster, edit 'time.sleep(1)' on line 54.
 
 ![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/f3502e19-2ab1-480c-a06f-65e7e110955e)
 
