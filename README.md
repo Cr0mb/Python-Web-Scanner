@@ -87,6 +87,14 @@ python rtsp.py
 ![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/d6d052a9-896e-43f4-a2df-e5297fd5c6c8)
 
 
+7. IP location finder (location.py)
+- Scans IP addresses listed in clean_sites.txt using ipinfo.io api; retrieving location information such as:
+>  Country, State, Region, ISP, Latitude, Longitude, and Organization
+- Uses the ipinfo.io API.
+
+![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/f3502e19-2ab1-480c-a06f-65e7e110955e)
+
+
 ## How to Use
 
 1. Web Scanner:
