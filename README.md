@@ -148,6 +148,10 @@ Adjust the number of addresses and instances based on your requirements.
 
 ## Updates
 ```
+V1.65
+> Added 'ssh.py' to organize sites that have ssh enabled seperated.
+```
+```
 V1.6
 > Added a port scanner to scan for the most used ports, (works pretty fast.)
 ```
