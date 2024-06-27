@@ -116,6 +116,7 @@ python rtsp.py
 ![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/19077671-5b88-446d-aa02-ad0e2102c862)
 
 9. SSH Address Extractor (ssh.py)
+> organize_ports.py will do the same thing, I should have thought of it first.
 - Extracts SSH addresses from a file (ports.txt) containing port scan results.
 - Identifies addresses that have port 22 (SSH) open and saves them to another file (ssh.txt).
 
@@ -124,6 +125,17 @@ python rtsp.py
 - It utilizes Nmap to gather information about the SSH service running on port 22 and saves the results to nmap.txt.
 
 ![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/d3db342d-7c18-43ca-bd6b-4a915cd0afcd)
+
+11. Port Organizer (organize_ports.py)
+
+- This Python script that extracts IP addresses associated with specific ports from a given input file and saves them into separate text files based on the service name, similar to ssh.py.
+- Displays a menu of common ports and their corresponding service names.
+- Allows users to select a port and extracts IP addresses associated with that port into a text file named after the service.
+- Requires 'ports.txt'
+
+![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/23278e19-5f60-4e22-adc5-8c8fb22df831)
+
+
 
 
 ## How to Use
@@ -167,7 +179,11 @@ Adjust the number of addresses and instances based on your requirements.
 
 10. Nmap Scanner
 
-- After running ssh.py, run nmap.py to find out information about the ssh type and protocol; printed to nmap.txt.
+- After running ssh.py or port_organizer.py, run nmap.py to find out information about the ssh type and protocol; printed to nmap.txt.
+
+11. Port Organizer
+
+- Extracts IP addresses associated with specific ports from a given input file and saves them into separate text files based on the service name
 
 ## Updates
 ```
