@@ -103,9 +103,16 @@ python rtsp.py
 
 ![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/19077671-5b88-446d-aa02-ad0e2102c862)
 
-9. SSH Address Extractor
+9. SSH Address Extractor (ssh.py)
 - Extracts SSH addresses from a file (ports.txt) containing port scan results.
 - Identifies addresses that have port 22 (SSH) open and saves them to another file (ssh.txt).
+
+10. SSH Scanner using Nmap (nmap.py)
+- This Python script automates the scanning of SSH services on a list of IP addresses or hostnames provided in an input file (ssh.txt).
+- It utilizes Nmap to gather information about the SSH service running on port 22 and saves the results to nmap.txt.
+
+![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/d3db342d-7c18-43ca-bd6b-4a915cd0afcd)
+
 
 ## How to Use
 
@@ -145,6 +152,10 @@ Adjust the number of addresses and instances based on your requirements.
 9. SSH Extractor
 
 - Run ssh.py to organize sites that have ssh enabled seperately.
+
+10. Nmap Scanner
+
+- After running ssh.py, run nmap.py to find out information about the ssh type and protocol; printed to nmap.txt.
 
 ## Updates
 ```
