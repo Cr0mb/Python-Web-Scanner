@@ -101,6 +101,12 @@ python rtsp.py
 - Performs a basic network port scan on a list of URLs or IP addresses provided in an input file (clean_sites.txt).
 - It utilizes multithreading to efficiently scan for open ports on common services.
 
+![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/19077671-5b88-446d-aa02-ad0e2102c862)
+
+9. SSH Address Extractor
+- Extracts SSH addresses from a file (ports.txt) containing port scan results.
+- Identifies addresses that have port 22 (SSH) open and saves them to another file (ssh.txt).
+
 ## How to Use
 
 1. Web Scanner:
@@ -135,6 +141,10 @@ Adjust the number of addresses and instances based on your requirements.
 8. Port Scanner
 
 - Run port.py to find out the most used ports that are open in a given address.
+
+9. SSH Extractor
+
+- Run ssh.py to organize sites that have ssh enabled seperately.
 
 ## Updates
 ```
