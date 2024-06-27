@@ -187,6 +187,10 @@ Adjust the number of addresses and instances based on your requirements.
 
 ## Updates
 ```
+v1.8
+> Realized I could make a script (port_organizer.py) that can completely organize and seperate all of the ports assosciated with addresses; consolidating these ports and corresponding addresses to there own text files.
+```
+```
 v1.7
 > Added 'nmap.py' that scans ssh.txt for the ssh type and protocol, saves this organized and nice into nmap.txt.
 ```
