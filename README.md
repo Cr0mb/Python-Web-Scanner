@@ -97,6 +97,10 @@ python rtsp.py
 ![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/f3502e19-2ab1-480c-a06f-65e7e110955e)
 
 
+8. Network Port Scanner (port.py)
+- Performs a basic network port scan on a list of URLs or IP addresses provided in an input file (clean_sites.txt).
+- It utilizes multithreading to efficiently scan for open ports on common services.
+
 ## How to Use
 
 1. Web Scanner:
@@ -124,7 +128,19 @@ Adjust the number of addresses and instances based on your requirements.
 
 - Run rtsp.py to find sites that contain open port 554
 
+7. Location Finder
+
+- Run location.py to find more information on an ip address.
+
+8. Port Scanner
+
+- Run port.py to find out the most used ports that are open in a given address.
+
 ## Updates
+```
+V1.6
+> Added a port scanner to scan for the most used ports, (works pretty fast.)
+```
 ```
 v1.5
 > Added a rtsp checker script to find out which sites contain media streaming under port 554.
