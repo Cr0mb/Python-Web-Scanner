@@ -21,11 +21,11 @@ def scan_ssh_addresses(input_file, output_file):
                     
                     with open(output_file, "a") as outfile:
                         if ssh_info:
-                            output_to_write = f"{ip}:{port}\n{ssh_info}\n"
+                            output_to_write = f"{ip}:{port}\n{ssh_info}\n\n"  # Add an extra newline here
                             outfile.write(output_to_write)
                             print(output_to_write.strip())
                         else:
-                            output_to_write = f"{ip}:{port}\nNo SSH information found\n"
+                            output_to_write = f"{ip}:{port}\nNo SSH information found\n\n"  # Add an extra newline here
                             outfile.write(output_to_write)
                             print(output_to_write.strip())
                 except Exception as e:
