@@ -27,6 +27,18 @@ You can install the required Python packages using pip:
 ```
 pip install asyncio aiohttp colorama pyfiglet requests
 ```
+Nmap also needs to be installed, if on windows install setup from here: [Nmap](https://nmap.org/download.html#windows)
+Or use [Chocolately](https://chocolatey.org/install)
+
+``` 
+choco install nmap
+```
+
+
+If Linux, simple:
+```
+pip install nmap
+```
 
 ## Components of the Script
 
