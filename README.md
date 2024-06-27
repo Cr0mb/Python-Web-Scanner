@@ -198,6 +198,10 @@ python rtsp.py
 ## Updates
 
 ```
+v1.9
+> nmap.py now scans for all different ssh protocols, ("OpenSSH", "Dropbear", "libssh", "libssh2", "Tectia", "PuTTY")
+```
+```
 v1.8
 > Realized I could make a script (port_organizer.py) that can completely organize and seperate all of the ports assosciated with addresses; consolidating these ports and corresponding addresses to there own text files.
 ```
