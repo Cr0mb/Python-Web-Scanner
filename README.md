@@ -200,6 +200,7 @@ python rtsp.py
 ```
 v1.9
 > nmap.py now scans for all different ssh protocols, ("OpenSSH", "Dropbear", "libssh", "libssh2", "Tectia", "PuTTY")
+> nmap.py now scans IP addresses listed in 'ssh.txt' regardless of whether they specify the :22 port explicitly in the file.
 ```
 ```
 v1.8
