@@ -159,8 +159,12 @@ Adjust the number of addresses and instances based on your requirements.
 
 ## Updates
 ```
+v1.7
+> Added 'nmap.py' that scans ssh.txt for the ssh type and protocol, saves this organized and nice into nmap.txt.
+```
+```
 V1.65
-> Added 'ssh.py' to organize sites that have ssh enabled seperated.
+> Added 'ssh.py' to organize sites that have ssh enabled seperated into ssh.txt.
 ```
 ```
 V1.6
