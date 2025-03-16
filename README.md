@@ -80,8 +80,8 @@ python httplistorganizer.py
 ```
 python checker.py
 ```
+![capture](https://github.com/user-attachments/assets/b05033c7-e9db-47e3-bcab-abf21230d8d1)
 
-![image](https://github.com/Cr0mb/Python-Web-Scanner/assets/137664526/0b0bd03c-321c-4b3f-b714-d5a9563b8527)
 
 4. Regex for Domain Validation (cleanoutput.py)
 
